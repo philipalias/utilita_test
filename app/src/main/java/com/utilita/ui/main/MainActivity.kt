@@ -1,8 +1,8 @@
-package com.utilita
+package com.utilita.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.utilita.ui.main.MainFragment
+import com.utilita.R
 
 class MainActivity : AppCompatActivity() {
 
