@@ -12,16 +12,41 @@
         android:padding="10dp"
         android:background="@android:color/white">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/status_item"
-            android:textColor="@android:color/darker_gray"
-            android:textStyle="normal"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="10dp"
-            tools:ignore="MissingConstraints" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/status_item"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                tools:ignore="MissingConstraints"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
+
+            <ImageView
+                android:id="@+id/status_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:drawableTint="#FFFFFF"
+                tools:ignore="MissingConstraints" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
 

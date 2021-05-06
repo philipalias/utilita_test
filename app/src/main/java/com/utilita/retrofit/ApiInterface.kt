@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiInterface {
     @GET("status")
-    fun fetchAllStatus(): Call<List<StatusModel>>
+    fun fetchAllStatus(): Call<StatusModel>
 }

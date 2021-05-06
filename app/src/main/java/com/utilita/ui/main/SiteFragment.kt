@@ -1,30 +1,30 @@
 package com.utilita.ui.main
 
 import android.content.Intent
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.utilita.R
 import com.utilita.model.StatusDetailsModel
+import com.utilita.model.StatusModel
 import com.utilita.ui.main.adapter.StatusAdapter
 import com.utilita.utils.Utils
 import com.utilita.viewmodel.StatusViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 
-
-class MainFragment : Fragment() , StatusAdapter.StatusListener{
+class SiteFragment : Fragment() , StatusAdapter.StatusListener{
 
     private lateinit var adapter: StatusAdapter
     private lateinit var viewModel: StatusViewModel
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = SiteFragment()
     }
 
 
@@ -50,15 +50,12 @@ class MainFragment : Fragment() , StatusAdapter.StatusListener{
                 rv_status.visibility = View.VISIBLE
                 var statusList = ArrayList<StatusDetailsModel>()
 
-                statusList.add(StatusDetailsModel("Core API",it.aPIsDBs.coreAPI))
-                statusList.add(StatusDetailsModel("Docuware API",it.aPIsDBs.docuwareAPI))
-                statusList.add(StatusDetailsModel("Prime DB",it.aPIsDBs.primeDB))
-                statusList.add(StatusDetailsModel("Redis DB",it.aPIsDBs.redisDB))
-                statusList.add(StatusDetailsModel("Redis Q HQAPI",it.aPIsDBs.redisQHQAPI))
-                statusList.add(StatusDetailsModel("Redis Q Prime",it.aPIsDBs.redisQPrime))
-                statusList.add(StatusDetailsModel("Redis Q WAPI",it.aPIsDBs.redisQWAPI))
-                statusList.add(StatusDetailsModel("WebAPI DB",it.aPIsDBs.webAPIDB))
-                statusList.add(StatusDetailsModel("Web API",it.aPIsDBs.webAPI))
+                statusList.add(StatusDetailsModel("My Utilita",it.sites.myUtilita))
+                statusList.add(StatusDetailsModel("Prime",it.sites.prime))
+                statusList.add(StatusDetailsModel("Utilita Business",it.sites.utilitaBusiness))
+                statusList.add(StatusDetailsModel("Utilita Extra",it.sites.utilitaExtra))
+                statusList.add(StatusDetailsModel("Utilita Mobile",it.sites.utilitaMobile))
+                statusList.add(StatusDetailsModel("Utilita Switch",it.sites.utilitaSwitch))
 
                 adapter.setData(statusList)
             }else{

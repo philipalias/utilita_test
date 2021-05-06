@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val BASEURL = "http://private-176645-utilita.apiary-mock.com/"
+//const val BASEURL = "https://jsonplaceholder.typicode.com/"
 class ApiClient {
     companion object{
         private var retrofit:Retrofit?=null

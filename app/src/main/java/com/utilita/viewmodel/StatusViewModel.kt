@@ -10,7 +10,7 @@ class StatusViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 
     private var statusRepository:StatusRepository?=null
-    var statusModelListLiveData : LiveData<List<StatusModel>>?=null
+    var statusModelListLiveData : LiveData<StatusModel>?=null
 
     init {
         statusRepository = StatusRepository()
@@ -18,6 +18,7 @@ class StatusViewModel : ViewModel() {
     }
 
     fun fetchAllStatus(){
+        
         statusModelListLiveData = statusRepository?.fetchAllStatus()
     }
 }

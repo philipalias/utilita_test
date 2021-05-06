@@ -5,20 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.utilita.R
+import com.utilita.model.StatusDetailsModel
 import com.utilita.model.StatusModel
+import com.utilita.utils.Utils
 import kotlinx.android.synthetic.main.status_item_view.view.*
 
 
 class StatusAdapter (var listener:StatusListener) : RecyclerView.Adapter<StatusAdapter.StatusViewHolder>(){
 
-    private var data : ArrayList<StatusModel>?=null
+    private var data : ArrayList<StatusDetailsModel>?=null
 
     interface StatusListener{
-        fun onItemDeleted(postModel: StatusModel, position: Int)
+        fun onItemClicked(statusDetailsModel: StatusDetailsModel, position: Int)
     }
 
-    fun setData(list: ArrayList<StatusModel>){
-        data = list
+    fun setData(statusData:ArrayList<StatusDetailsModel>?){
+        data = statusData
         notifyDataSetChanged()
     }
 
@@ -33,18 +35,21 @@ class StatusAdapter (var listener:StatusListener) : RecyclerView.Adapter<StatusA
     override fun onBindViewHolder(holder: StatusViewHolder, position: Int) {
         val item = data?.get(position)
         holder.bindView(item)
-        /*holder.itemView.img_delete.setOnClickListener {
+        holder.itemView.setOnClickListener {
             item?.let { it1 ->
-                listener.onItemDeleted(it1, position)
+                listener.onItemClicked(it1, position)
             }
-        }*/
+        }
     }
 
-
-
     class StatusViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bindView(item: StatusModel?) {
-            //itemView.status_item.text = item?.aPIsDBs.
+        fun bindView(item: StatusDetailsModel?) {
+            itemView.status_item.text = item?.status
+            if (item?.details?.responseCode == 200)
+                itemView.status_class.setImageResource(R.drawable.ic_check)
+            else{
+                itemView.status_class.setImageResource(R.drawable.ic_close)
+            }
         }
 
     }
